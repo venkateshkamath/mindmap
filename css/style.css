@@ -13,7 +13,14 @@
   padding: 0 4.8rem;
   position: relative;
 }
+.header-title {
+  font-size: 4rem;
+}
 
+.footer-title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
 .logo {
   height: 2.2rem;
 }
@@ -122,6 +129,7 @@
 
 .hero-img {
   width: 100%;
+  filter: drop-shadow(1px 1px 1px grey);
 }
 
 .delivered-meals {
@@ -195,8 +203,7 @@
 }
 
 @keyframes moving {
-  
-  0%{
+  0% {
     transform: translateX(80%);
   }
   25% {
@@ -211,10 +218,7 @@
   100% {
     transform: translateX(-70%);
   }
- 
- 
 }
-
 
 .logos img {
   height: 3.2rem;
@@ -302,6 +306,10 @@
 .meal:hover {
   transform: translateY(-1.2rem);
   box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
+
+}
+.meal:hover>.meal-img{
+  filter: none;
 }
 
 .meal-content {
@@ -363,6 +371,7 @@
 
 .meal-img {
   width: 100%;
+  filter: grayscale(70%);
 }
 
 .all-recipes {
