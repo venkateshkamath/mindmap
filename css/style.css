@@ -274,7 +274,21 @@
 
   background-color: #fdf2e9;
   z-index: -2;
+  /* animation: bubbler 5s linear infinite forwards; */
 }
+
+/* @keyframes bubbler {
+  0%{
+  
+   padding-bottom: 60%;
+}
+50%{
+  padding-bottom: 30%;
+}
+100%{
+  padding-bottom: 60%;
+}
+} */
 
 .step-img-box::after {
   width: 45%;
@@ -284,8 +298,16 @@
 }
 
 .step-img {
-  width: 35%;
+  width: 40%;
+  /* height: 90%; */
+  border-radius: 20px;
+  filter: brightness(90%);
   /* z-index: 10; */
+}
+
+.step-img:hover {
+  transition: all 1s ease;
+  transform: scale(1.02);
 }
 
 /**************************/
@@ -306,9 +328,8 @@
 .meal:hover {
   transform: translateY(-1.2rem);
   box-shadow: 0 3.2rem 6.4rem rgba(0, 0, 0, 0.06);
-
 }
-.meal:hover>.meal-img{
+.meal:hover > .meal-img {
   filter: none;
 }
 
@@ -403,6 +424,8 @@
 
 .testimonial-img {
   width: 6.4rem;
+  object-fit: cover;
+  height: 6.4rem;
   border-radius: 50%;
   margin-bottom: 1.2rem;
 }
@@ -594,9 +617,10 @@
       rgba(235, 151, 78, 0.35),
       rgba(230, 125, 34, 0.35)
     ),
-    url("../img/eating.jpg");
+    url("../img/team.jpg");
   background-size: cover;
   background-position: center;
+  object-fit: cover;
 }
 
 .cta-form {
@@ -645,7 +669,7 @@
 }
 
 .grid--footer {
-  grid-template-columns: 1.5fr 1.5fr 1fr 1fr 1fr;
+  grid-template-columns: 1.5fr 1.5fr 1fr 1fr ;
 }
 
 .logo-col {
