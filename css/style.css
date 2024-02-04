@@ -195,35 +195,57 @@
   margin-bottom: 2.4rem;
   color: #888;
 }
-
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
 .logos {
-  display: flex;
-  justify-content: space-around;
+  overflow: hidden;
+  padding: 90px 0;
+  background: white;
+  white-space: nowrap;
+  position: relative;
   /* animation: moving 10s linear infinite forwards; */
 }
 
-@keyframes moving {
-  0% {
-    transform: translateX(80%);
-  }
-  25% {
-    transform: translateX(50%);
-  }
-  50% {
-    transform: translateX(0%);
-  }
-  75% {
-    transform: translateX(-50%);
-  }
-  100% {
-    transform: translateX(-70%);
-  }
+.logos:before,
+.logos:after {
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+}
+
+.logos:before {
+  left: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+}
+
+.logos:after {
+  right: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
 }
 
 .logos img {
   height: 3.2rem;
   filter: brightness(0);
   opacity: 50%;
+}
+
+.logos:hover .logos-slide {
+  animation-play-state: paused;
+}
+
+.logos-slide {
+  display: flex;
+  justify-content: space-around;
+  animation: 15s slide infinite linear;
 }
 
 /**************************/
@@ -274,21 +296,26 @@
 
   background-color: #fdf2e9;
   z-index: -2;
-  /* animation: bubbler 5s linear infinite forwards; */
+  /* animation: bubbler 2s linear infinite forwards; */
 }
 
-/* @keyframes bubbler {
-  0%{
-  
-   padding-bottom: 60%;
+@keyframes bubbler {
+  0% {
+    opacity: 1;
+    /* transform: scale(1.1); */
+    /* transform: scale(1.2) translate(-50%, -50%); */
+    /* border-radius: 0; */
+  }
+  25% {
+    opacity: 0.75;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.1;
+  }
 }
-50%{
-  padding-bottom: 30%;
-}
-100%{
-  padding-bottom: 60%;
-}
-} */
 
 .step-img-box::after {
   width: 45%;
@@ -440,9 +467,21 @@
   font-size: 1.6rem;
   color: #6f6f6f;
 }
-
+.video-container {
+  position: relative;
+}
+.video-arrow {
+  position: absolute;
+  top: -80px;
+  left: -94px;
+  transform: rotate(45deg);
+}
+.video-player {
+  height: 500px;
+  width: -webkit-fill-available;
+}
 .gallery {
-  display: grid;
+  /* display: grid; */
   grid-template-columns: repeat(3, 1fr);
   gap: 1.6rem;
   padding: 1.6rem;
@@ -669,7 +708,7 @@
 }
 
 .grid--footer {
-  grid-template-columns: 1.5fr 1.5fr 1fr 1fr ;
+  grid-template-columns: 1.5fr 1.5fr 1fr 1fr;
 }
 
 .logo-col {
