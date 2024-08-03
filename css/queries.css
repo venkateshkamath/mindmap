@@ -156,6 +156,9 @@
     /* 3) Hide it from screen readers */
     visibility: hidden;
   }
+  .nav-open {
+    z-index: 99;
+  }
 
   .nav-open .main-nav {
     opacity: 1;
